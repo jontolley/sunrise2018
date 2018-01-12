@@ -1,0 +1,39 @@
+{
+  "name": "2018-encampment",
+  "version": "1.0.0",
+  "description": "2018 Encampment Website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node .",
+    "build": "NODE_ENV=build node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.3.3",
+    "babel-register": "^6.24.1",
+    "jstransformer-handlebars": "^1.0.0",
+    "longjohn": "^0.2.12",
+    "metalsmith": "^2.3.0",
+    "metalsmith-autoprefixer": "^1.1.1",
+    "metalsmith-babel": "^4.1.0",
+    "metalsmith-imagemin": "^4.0.0",
+    "metalsmith-layouts": "^1.8.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-sass": "^1.4.0",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-watch": "^1.0.3",
+    "metalsmith-webpack": "^1.0.3",
+    "rsyncwrapper": "^2.0.1",
+    "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "expose-loader": "^0.7.3",
+    "jquery": "^3.2.1",
+    "reframe.js": "^2.1.3"
+  }
+}

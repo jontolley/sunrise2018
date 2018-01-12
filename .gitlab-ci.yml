@@ -1,0 +1,37 @@
+image: docker.matchbooklab.com/ci
+
+stages:
+    - build
+    - deploy
+    - cleanup
+
+build:
+    stage: build
+    only:
+        - master
+    script:
+        # run this on the runner host
+        - eval $(dmport -i "$RUNNER_MACHINE_CONFIG")
+        - yarn
+        - yarn run build
+        - docker-compose -f docker-compose.yml -f docker-compose.production.yml build --pull
+        - docker-compose -f docker-compose.yml -f docker-compose.production.yml push
+
+deploy:
+    stage: deploy
+    only:
+        - master
+    script:
+        # run this on the production host
+        - eval $(dmport -i "$PANDORA_MACHINE_CONFIG")
+        - docker-compose -f docker-compose.yml -f docker-compose.production.yml pull
+        - docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d
+
+cleanup:
+    stage: cleanup
+    only:
+        - master
+    script:
+        # run this on the production host
+        - eval $(dmport -i "$PANDORA_MACHINE_CONFIG")
+        - docker system prune -af
